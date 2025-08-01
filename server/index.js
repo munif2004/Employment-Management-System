@@ -4,16 +4,17 @@ import cors from "cors";
 import addEmp from "./model/Employye.model.js";
 
 
+import dotenv from "dotenv";
+dotenv.config();
 
-mongoose.connect("mongodb+srv://munif:munif@cluster0.vcy6e.mongodb.net/NAME?retryWrites=true&w=majority&appName=Cluster0")
-.then(()=>{
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => {
     console.log("DB Connected");
-    
-})
-.catch(()=>{
+  })
+  .catch(() => {
     console.log("Error to Connect");
-    
-})
+  });
+
 
 
 
