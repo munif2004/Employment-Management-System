@@ -3,18 +3,17 @@ import mongoose from "mongoose";
 import cors from "cors";
 import addEmp from "./model/Employye.model.js";
 
-
 import dotenv from "dotenv";
+
+
+
 dotenv.config();
-
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log("DB Connected");
-  })
-  .catch(() => {
-    console.log("Error to Connect");
-  });
-
+mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => console.log("MongoDB Connected"))
+.catch((err) => console.log("Error to Connect", err));
 
 
 
@@ -29,7 +28,12 @@ let app = express();
 
 app.use(express.json())
 app.use(cors())
+// ✅ Use Render's PORT or default to 8000 (for local)
+const PORT = process.env.PORT || 8000;
 
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
 // Routes
 
