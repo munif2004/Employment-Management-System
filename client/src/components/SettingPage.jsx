@@ -16,7 +16,7 @@ export const SettingPage = () => {
     useEffect(()=>{
     
     
-        axios.post("http://localhost:8000/getemp",{option:option})
+        axios.post("${import.meta.env.VITE_API_BASE_URL}/getemp",{option:option})
         .then((res)=>{
             setEmp(res.data);
             console.log(res.data);
