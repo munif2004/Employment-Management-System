@@ -39,7 +39,7 @@ const EmployeeForm = () => {
 
     // Here you would typically send the data to an API
     console.log('Form submitted:', formData);
-axios.post("${import.meta.env.VITE_API_BASE_URL}/addemp",formData);
+axios.post(`${import.meta.env.VITE_API_BASE_URL}/addemp`,formData);
     alert('Employee data submitted successfully!');
     
     // Reset all form fields

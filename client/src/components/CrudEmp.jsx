@@ -13,7 +13,7 @@ const CrudEMP = ({ employee, onDelete, onUpdate }) => {
 
   const handleUpdate = () => {
     axios
-      .put(`${import.meta.env.VITE_API_BASE_URL}/update/${editedEmployee._id}`, editedEmployee)
+      .put(`${import.meta.env.VITE_API_BASE_URL}/update/${editedEmployee._id}, editedEmployee`)
       .then((res) => {
         alert('Employee updated successfully!');
         onUpdate(editedEmployee); // Notify parent of the update

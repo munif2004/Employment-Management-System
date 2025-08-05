@@ -6,6 +6,7 @@ import EmployeeCard from '../components/EmployeeCard';
 export const Department = () => {
 
 
+console.log(import.meta.env.VITE_API_BASE_URL); // should log your full backend URL
 
 let [option,setOption] = useState("");
 let [empDeatail,setEmp] = useState([]);
@@ -20,7 +21,7 @@ console.log(option);
 useEffect(()=>{
 
 
-    axios.post("http://localhost:8000/getemp",{option:option})
+    axios.post(`${import.meta.env.VITE_API_BASE_URL}/getemp`,{option:option})
     .then((res)=>{
         setEmp(res.data);
         console.log(res.data);

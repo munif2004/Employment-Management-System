@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useState,useEffect } from 'react';
 import CrudEMP from './CrudEmp';
 export const SettingPage = () => {
-    let [option,setOption] = useState("IT");
+    let [option,setOption] = useState("");
     
   let [empDetail, setEmp] = useState([]);
 
@@ -17,6 +17,7 @@ export const SettingPage = () => {
     useEffect(()=>{
     
     axios.post(`${import.meta.env.VITE_API_BASE_URL}/getemp`, { option: option })
+
 
         .then((res)=>{
             setEmp(res.data);
@@ -76,12 +77,10 @@ export const SettingPage = () => {
     
     
     
-    
-       {empDetail.map((emp) => (
-        <CrudEMP key={emp._id} employee={emp} />
-      ))}
-                  
-    
+    {empDetail.map((emp) => (
+  <CrudEMP key={emp._id} employee={emp} />
+))}
+
     
     
     

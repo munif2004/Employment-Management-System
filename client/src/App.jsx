@@ -7,6 +7,8 @@ import { Department } from './Pages/Department';
 import { Settings } from './Pages/Settings';
 
  const App = () => {
+   console.log("API Base URL:", import.meta.env.VITE_API_BASE_URL);
+  
   return (
 
 <BrowserRouter>
